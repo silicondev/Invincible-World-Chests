@@ -3,6 +3,7 @@ package com.gmail.nossr50.invincibleworldchests.listeners;
 import com.gmail.nossr50.invincibleworldchests.ChestUtils;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockState;
+import org.bukkit.entity.*;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -46,7 +47,7 @@ public class CustomListener implements Listener {
     @EventHandler(priority = EventPriority.LOWEST)
     public void OnVehicleDestroy(VehicleDestroyEvent event)
     {
-        if(event.getVehicle() instanceof InventoryHolder)
+        if(event.getVehicle() instanceof InventoryHolder && event.getVehicle() instanceof StorageMinecart)
         {
             //Minecarts
             ChestUtils.preventBreakingInventoryWithLootTable((InventoryHolder) event.getVehicle(), event);
